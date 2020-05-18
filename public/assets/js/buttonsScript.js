@@ -1,15 +1,16 @@
 $(() => {
-    $(".devour-btn").on("click", (event) => {
-        var id = $(this).data("id");
-        var newState = $(this).data("newState");
+    $("#devour-btn").on("click", (event) => {
+        var id = $("devour-btn").data("id");
+        var newState = $("devour-btn").data("newState");
 
         var newDevouredState = {
             devoured: newState
         };
+        console.log(newState)
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newState
+            data: newDevouredState
         }).then(
             () => {
                 location.reload();
@@ -35,15 +36,4 @@ $(() => {
         )
     });
 
-    $(".devour-btn").on("click", (event) => {
-        var id = $(this).data("id");
-
-        $.ajax("/api/burgers/" + id, {
-            type: "DELETE"
-        }).then(
-            () => {
-                location.reload();
-            }
-        )
-    })
 })

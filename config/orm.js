@@ -39,6 +39,7 @@ var orm = {
         connection.query(queryString, values, (err, result) => {
             if (err) {throw err}
             callBack(result);
+            console.log(result)
         })
         
     },
