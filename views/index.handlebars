@@ -1,26 +1,59 @@
-<h1>BURGERS!!!</h1>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>BURGERS!!!</h1>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <p class="card-title">Burgers I want to DEVOUR!</p>
+                        <ul>
+                            {{#each burgers}}
+                                {{#unless this.devoured}}
+                                    <li>{{this.burger_name}}
+                                        <button type="submit" data-id="{{burgers.id}}" data-newState="{{burgers.devoured}}" id="devour-btn">DEVOUR DA BURGER!!!</button>
+                                    </li>
+                                {{/unless}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img src="./assets/images/burger.jpg" id="burger-image" alt="burger">
+            </div>
+            <div class="col-md-4" id="devoured-burgers">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h2 class="card-title">Burgers I already DEVOURED!</h2>
 
-<h2>Burgers I want to DEVOUR!</h2>
+                        <ul>
+                            {{#each burgers}}
+                                {{#if this.devoured}}
+                                    <li>{{this.burger_name}}</li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            {{!-- placeholder --}}
+        </div>
+        <div class="col-md-4">
+            <form class="new-burger">
+                <input type="text" id="newBurgerName" name="burger_name">
+                <button type="submit" class="newBurgerSubmit">Add new BURGER</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            {{!-- placeholder --}}
+        </div>
+    </div>
+</div>
 
-<ul>
-    {{#each burgers}}
-        {{#unless this.devoured}}
-            <li>{{this.burger_name}}
-                <button type="submit" data-id="{{burgers.id}}" data-newState="{{burgers.devoured}}" id="devour-btn">DEVOUR DA BURGER!!!</button>
-            </li>
-        {{/unless}}
-    {{/each}}
-</ul>
-
-<ul>
-    {{#each burgers}}
-        {{#if this.devoured}}
-            <li>{{this.burger_name}}</li>
-        {{/if}}
-    {{/each}}
-</ul>
-
-<form class="new-burger">
-    <input type="text" id="newBurgerName" name="burger_name">
-    <button type="submit" class="newBurgerSubmit">Add new BURGER</button>
-</form>

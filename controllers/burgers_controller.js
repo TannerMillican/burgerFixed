@@ -25,7 +25,6 @@ router.post("/api/burgers", (req, res) => {
 router.put("/api/burgers/:id", (req, res) => {
     var state = "id = " + req.params.id;
 
-    console.log(req.body)
     burgers.updateState({
         devoured: req.body.devoured
     }, state, (result) => {
